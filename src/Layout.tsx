@@ -1,11 +1,12 @@
 import { Outlet } from 'react-router-dom';
-import { SelectCountries } from '@/pages';
+import { DisplayCountries, SelectCountries } from '@/components';
 export const Layout = () => {
   return (
     <div className='w-full h-full flex justify-center items-center'>
-      <div className='w-[60%] h-[75vh] flex flex-col gap-4 rounded-xl shadow-lg bg-slate-100'>
+      <div className='w-[60%] h-[75vh] rounded-xl shadow-lg bg-slate-100'>
         <SelectCountries />
-        <div className='p-10'>
+        <div className='px-10 pt-8 flex flex-col gap-4'>
+          <DisplayCountries />
           <Outlet />
         </div>
       </div>

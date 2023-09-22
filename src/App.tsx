@@ -1,4 +1,4 @@
-import { CountryPage } from '@/pages';
+import { CurrencyPage } from '@/pages';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Layout from './Layout';
 
@@ -8,7 +8,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<Layout />}>
-            <Route path='/:countryCode' element={<CountryPage />} />
+            <Route path='/:countryCode' element={<CurrencyPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

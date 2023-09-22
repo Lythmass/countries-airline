@@ -14,10 +14,14 @@ export const SelectCountries = () => {
           control: (styles) => ({
             ...styles,
             width: '100%',
-            borderTopLeftRadius: '0.75rem',
-            borderTopRightRadius: '0.75rem',
-            padding: '0.5rem 0',
+            borderRadius: '0',
+            padding: '1rem 0.5rem 1rem 2rem',
+            borderRight: 'none',
+            borderLeft: 'none',
+            borderTop: 'none',
+            borderBottom: '1px solid gray',
             backgroundColor: 'transparent',
+            boxShadow: 'none',
           }),
         }}
         defaultValue={options[0]}

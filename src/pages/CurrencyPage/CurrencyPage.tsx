@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 
-export const CountryPage = () => {
+export const CurrencyPage = () => {
   const { countryCode } = useParams();
 
   return (
@@ -10,4 +10,4 @@ export const CountryPage = () => {
   );
 };
 
-export default CountryPage;
+export default CurrencyPage;

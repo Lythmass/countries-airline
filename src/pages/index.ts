@@ -1,1 +1,1 @@
-export { CountryPage, SelectCountries } from './CountryPage';
+export { CurrencyPage } from './CurrencyPage';
