@@ -1,1 +1,1 @@
-export { CountryPage } from './CountryPage';
+export { CountryPage, SelectCountries } from './CountryPage';
