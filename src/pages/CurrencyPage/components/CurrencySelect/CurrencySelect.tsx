@@ -1,30 +1,20 @@
-import { useAskLocation } from '@/hooks';
 import { useSelectCountries } from '@/hooks';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import ReactSelect from 'react-select';
 
-import Select from 'react-select';
-
-export const SelectCountries = () => {
+export const CurrencySelect = () => {
   const options = useSelectCountries();
-
-  const navigate = useNavigate();
   const { countryCode } = useParams();
-  const handleChange = (event: { value: string }) => {
-    navigate(`/${event.value}`);
-  };
-
-  useAskLocation();
   return (
-    <div className='w-full'>
+    <>
       {options?.length && (
-        <Select
-          onChange={(event: any) => handleChange(event)}
+        <ReactSelect
           styles={{
             control: (styles) => ({
               ...styles,
               width: '100%',
               borderRadius: '0',
-              padding: '1rem 0.5rem 1rem 2rem',
+              padding: '0.1rem 0',
               borderRight: 'none',
               borderLeft: 'none',
               borderTop: 'none',
@@ -34,14 +24,14 @@ export const SelectCountries = () => {
               fontWeight: 'bold',
             }),
           }}
-          value={options.find(
+          options={options}
+          defaultValue={options.find(
             (option: { value: string }) => option.value === countryCode,
           )}
-          options={options}
         />
       )}
-    </div>
+    </>
   );
 };
 
-export default SelectCountries;
+export default CurrencySelect;

@@ -26,7 +26,9 @@ export const Layout = () => {
               Currency Exchange
             </button>
             <button
-              onClick={() => navigate('airport')}
+              onClick={() =>
+                location.pathname.length <= 4 && navigate('airport')
+              }
               className={
                 location.pathname.length > 4
                   ? 'text-blue-600 shadow-[0_2px_#2563eb]'

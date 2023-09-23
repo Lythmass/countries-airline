@@ -16,7 +16,7 @@ function App() {
             <Routes>
               <Route path='/' element={<Layout />} />
               <Route path=':countryCode' element={<Layout />}>
-                <Route element={<CurrencyPage />} />
+                <Route path='' element={<CurrencyPage />} />
                 <Route path='airport' element={<AirportPage />} />
               </Route>
             </Routes>
