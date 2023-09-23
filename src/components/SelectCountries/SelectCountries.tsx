@@ -1,6 +1,6 @@
 import { useCountries } from '@/hooks';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import Select from 'react-select';
 
@@ -19,6 +19,7 @@ export const SelectCountries = () => {
   }, [countries]);
 
   const navigate = useNavigate();
+  const location = useLocation();
   const handleChange = (event: { value: string }) => {
     navigate(`/${event.value}`);
   };
@@ -43,7 +44,10 @@ export const SelectCountries = () => {
               fontWeight: 'bold',
             }),
           }}
-          defaultValue={options[0]}
+          defaultValue={options.find(
+            (option: { value: string }) =>
+              option.value === location.pathname.substring(1),
+          )}
           options={options}
         />
       )}
