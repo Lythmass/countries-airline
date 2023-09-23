@@ -20,6 +20,7 @@ export default function useCountries() {
           return {
             name: country.name.common,
             code: country.cca3,
+            codeShort: country.cca2,
             capital: country.capital ? country.capital[0] : 'none',
             currency: country.currencies,
             region: country.region,

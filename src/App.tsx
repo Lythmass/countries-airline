@@ -13,6 +13,7 @@ function App() {
         <QueryClientProvider client={queryClient}>
           <BrowserRouter>
             <Routes>
+              <Route path='/' element={<Layout />} />
               <Route element={<Layout />}>
                 <Route path='/:countryCode' element={<CurrencyPage />} />
               </Route>
