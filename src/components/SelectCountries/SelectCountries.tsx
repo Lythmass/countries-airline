@@ -1,6 +1,6 @@
 import { useAskLocation, useCountries } from '@/hooks';
 import { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import Select from 'react-select';
 
@@ -20,7 +20,7 @@ export const SelectCountries = () => {
   }, [countries]);
 
   const navigate = useNavigate();
-  const location = useLocation();
+  const { countryCode } = useParams();
   const handleChange = (event: { value: string }) => {
     navigate(`/${event.value}`);
   };
@@ -47,8 +47,7 @@ export const SelectCountries = () => {
             }),
           }}
           value={options.find(
-            (option: { value: string }) =>
-              option.value === location.pathname.substring(1),
+            (option: { value: string }) => option.value === countryCode,
           )}
           options={options}
         />
