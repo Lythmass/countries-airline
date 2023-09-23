@@ -23,7 +23,7 @@ export default function useCountries() {
             capital: country.capital ? country.capital[0] : 'none',
             currency: country.currencies,
             region: country.region,
-            subregion: country.subregion,
+            subRegion: country.subregion,
             flag: country.flag,
             population: country.population,
             continent: country.continents[0],

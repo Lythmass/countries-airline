@@ -1,5 +1,6 @@
 import { useCountries } from '@/hooks';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import Select from 'react-select';
 
@@ -17,10 +18,16 @@ export const SelectCountries = () => {
     });
   }, [countries]);
 
+  const navigate = useNavigate();
+  const handleChange = (event: { value: string }) => {
+    navigate(`/${event.value}`);
+  };
+
   return (
     <div className='w-full'>
       {options?.length && (
         <Select
+          onChange={(event: any) => handleChange(event)}
           styles={{
             control: (styles) => ({
               ...styles,
@@ -33,6 +40,7 @@ export const SelectCountries = () => {
               borderBottom: '1px solid gray',
               backgroundColor: 'transparent',
               boxShadow: 'none',
+              fontWeight: 'bold',
             }),
           }}
           defaultValue={options[0]}
