@@ -1,6 +1,6 @@
 import { useCountries } from '@/hooks';
 import { useEffect } from 'react';
-import { useMutation, useQuery } from 'react-query';
+import { useMutation } from 'react-query';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const fetchGeoLocation = async (lat: number, long: number) => {

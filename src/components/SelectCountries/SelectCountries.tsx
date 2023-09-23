@@ -1,5 +1,5 @@
 import { useAskLocation, useCountries } from '@/hooks';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import Select from 'react-select';
@@ -7,7 +7,7 @@ import Select from 'react-select';
 export const SelectCountries = () => {
   const [options, setOptions] = useState([]);
   const { countries } = useCountries();
-  const ref = useRef<any>();
+
   useEffect(() => {
     setOptions(() => {
       return countries?.map((country: { code: string; name: string }) => {
@@ -30,7 +30,6 @@ export const SelectCountries = () => {
     <div className='w-full'>
       {options?.length && (
         <Select
-          ref={ref}
           onChange={(event: any) => handleChange(event)}
           styles={{
             control: (styles) => ({
