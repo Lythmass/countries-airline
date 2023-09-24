@@ -2,8 +2,11 @@ import { useSelectCountries } from '@/hooks';
 import { useParams } from 'react-router-dom';
 import ReactSelect from 'react-select';
 
-export const CurrencySelect = () => {
-  const options = useSelectCountries();
+export const CurrencySelect: React.FC<{
+  setTargetCurrency: (value: { symbol: string; name: string }) => void;
+  setResult: (value: number) => void;
+}> = (props) => {
+  const options = useSelectCountries(true);
   const { countryCode } = useParams();
   return (
     <>
@@ -23,6 +26,13 @@ export const CurrencySelect = () => {
               boxShadow: 'none',
               fontWeight: 'bold',
             }),
+          }}
+          onChange={(value: any) => {
+            props.setTargetCurrency({
+              symbol: value.symbol,
+              name: value.currencyName,
+            });
+            props.setResult(0);
           }}
           options={options}
           defaultValue={options.find(
