@@ -37,6 +37,7 @@ export const CurrencyInput: React.FC<{
       },
     },
   );
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNumber(parseInt(event.target.value));
   };
@@ -53,6 +54,7 @@ export const CurrencyInput: React.FC<{
     props.targetCurrency?.symbol === ''
       ? currency.symbol
       : props.targetCurrency?.symbol;
+
   return (
     <div className='w-full flex items-center gap-3'>
       <div className='text-[#808080] h-4e'>

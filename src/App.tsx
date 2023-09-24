@@ -1,9 +1,8 @@
-import { CurrencyPage } from '@/pages';
+import { CurrencyPage, AirportPage } from '@/pages';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Layout from './Layout';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { StoreProvider } from './store';
-import { AirportPage } from './pages/AirportPage';
 
 function App() {
   const queryClient = new QueryClient();
