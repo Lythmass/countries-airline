@@ -1,1 +1,1 @@
-export { CurrencyPage, CurrencySelect } from './CurrencyPage';
+export { CurrencyPage, CurrencySelect, CurrencyInput } from './CurrencyPage';

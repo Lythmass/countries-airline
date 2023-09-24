@@ -9,7 +9,7 @@ export const DisplayCountries = () => {
 
   return (
     <div className='w-full h-[10rem] mt-6 flex gap-3 items-center'>
-      <div className='text-[8rem] flex items-center bg-white w-[10rem] rounded-xl h-full'>
+      <div className='text-[8rem] flex items-center shadow-md bg-white w-[10rem] rounded-xl h-full'>
         {country !== undefined && country.flag}
       </div>
       <div className='w-full h-full grid grid-cols-2 gap-10'>
