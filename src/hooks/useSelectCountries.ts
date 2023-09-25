@@ -2,7 +2,7 @@ import { useCountries } from '@/hooks';
 import { useEffect, useState } from 'react';
 
 export default function useSelectCountries(addSymbol = false) {
-  const [options, setOptions] = useState([]);
+  const [options, setOptions] = useState<{}>([]);
   const { countries } = useCountries();
 
   useEffect(() => {
