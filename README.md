@@ -2,6 +2,7 @@
 # Countries and Airports
 
 This is a Vite React project where I use React-Query to cache the fetched data from apis, such as: countries, airports and currencies.
+P.S. When you Allow the permssion to access your location, the server takes about 10-15 seconds to display it.
 
 [Live version](https://countries-airports.netlify.app/)
 
