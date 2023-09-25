@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 export default function useControlInput(
   number: number,
   setNumber: (value: number) => void,
-  mutation: { mutate: (params: { from: string; to: string }) => void },
+  mutation: (from: string, to: string) => void,
   currencyName: string,
   targetCurrencySymbol?: string,
   targetCurrencyName?: string,
@@ -12,15 +12,14 @@ export default function useControlInput(
     setNumber(parseInt(event.target.value));
   };
   useEffect(() => {
-    mutation.mutate({
-      from: currencyName,
-      to:
-        targetCurrencySymbol === ''
-          ? currencyName
-          : targetCurrencyName
-          ? targetCurrencyName
-          : '',
-    });
+    mutation(
+      currencyName,
+      targetCurrencySymbol === ''
+        ? currencyName
+        : targetCurrencyName
+        ? targetCurrencyName
+        : '',
+    );
   }, [number]);
 
   return { number, handleChange };

@@ -10,6 +10,7 @@ export const fetchCountries = async () => {
 export default function useCountries() {
   const countriesData = useQuery('countries', fetchCountries, {
     refetchOnWindowFocus: false,
+    refetchOnMount: false,
   });
   const { countries, setCountries } = useStore();
 

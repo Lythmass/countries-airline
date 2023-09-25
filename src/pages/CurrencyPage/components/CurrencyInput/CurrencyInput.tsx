@@ -11,11 +11,11 @@ export const CurrencyInput: React.FC<{
 }> = (props) => {
   const [number, setNumber] = useState(0);
   const { currency, currencyName } = useGetCurrencyTypes();
-  const { mutation } = useFetchCurrencies(number, props.setResult);
+  const { handleMutation } = useFetchCurrencies(number, props.setResult);
   const { handleChange } = useControlInput(
     number,
     setNumber,
-    mutation,
+    handleMutation,
     currencyName,
     props.targetCurrency?.symbol,
     props.targetCurrency?.name,
@@ -36,7 +36,7 @@ export const CurrencyInput: React.FC<{
           !props.isDisabled ? 'text-black' : 'text-[#808080]'
         } border-b-[#808080] focus:outline-none`}
         min={0}
-        value={props.isDisabled ? props.result : number}
+        value={props.isDisabled ? (props?.result ? props.result : 0) : number}
         onChange={handleChange}
         disabled={props.isDisabled}
         type='number'
