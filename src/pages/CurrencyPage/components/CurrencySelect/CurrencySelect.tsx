@@ -8,9 +8,7 @@ export const CurrencySelect: React.FC<{
 }> = (props) => {
   const options = useSelectCountries(true);
   const { countryCode } = useParams();
-  const handleChange = (
-    value: undefined | null | { symbol: string; currencyName: string },
-  ) => {
+  const handleChange = (value: any) => {
     props.setTargetCurrency({
       symbol: value?.symbol ? value?.symbol : '',
       name: value?.currencyName ? value?.currencyName : '',
@@ -39,7 +37,7 @@ export const CurrencySelect: React.FC<{
           onChange={handleChange}
           options={options}
           defaultValue={options.find(
-            (option: { value: string }) => option.value === countryCode,
+            (option: any) => option.value === countryCode,
           )}
         />
       )}

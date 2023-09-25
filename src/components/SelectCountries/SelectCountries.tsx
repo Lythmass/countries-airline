@@ -9,7 +9,7 @@ export const SelectCountries = () => {
 
   const navigate = useNavigate();
   const { countryCode } = useParams();
-  const handleChange = (event: null | { value: string }) => {
+  const handleChange = (event: any) => {
     navigate(`/${event!.value}`);
   };
 
@@ -18,7 +18,7 @@ export const SelectCountries = () => {
     <div className='w-full'>
       {options?.length && (
         <Select
-          onChange={(event: null | { value: string }) => handleChange(event)}
+          onChange={(event: any) => handleChange(event)}
           styles={{
             control: (styles) => ({
               ...styles,
@@ -34,9 +34,7 @@ export const SelectCountries = () => {
               fontWeight: 'bold',
             }),
           }}
-          value={options.find(
-            (option: { value: string }) => option.value === countryCode,
-          )}
+          value={options.find((option: any) => option.value === countryCode)}
           options={options}
         />
       )}
