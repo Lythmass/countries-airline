@@ -3,7 +3,7 @@
 
 This is a Vite React project where I use React-Query to cache the fetched data from apis, such as: countries, airports and currencies.
 
-[Live version]()
+[Live version](https://countries-airports.netlify.app/)
 
 ## Table of Contents
 
