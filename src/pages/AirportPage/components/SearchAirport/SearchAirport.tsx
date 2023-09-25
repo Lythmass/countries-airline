@@ -1,23 +1,16 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { AirportType } from '@/types';
-import { useGetAirports } from '@/hooks';
-import { useStore } from '@/store';
+import useMutateAirport from './useMutateAirport';
 
 export const SearchAirport: React.FC<{
   setAirports: (value: AirportType[]) => void;
 }> = (props) => {
   const [value, setValue] = useState('');
+  const { mutation } = useMutateAirport(value, props.setAirports);
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
   };
-  const { mutation } = useGetAirports(props.setAirports);
-  const { country } = useStore();
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      mutation.mutate({ country: country?.codeShort, search: value });
-    }, 500);
-    return () => clearTimeout(timer);
-  }, [value]);
 
   return (
     <div className='w-full flex items-center gap-10'>
