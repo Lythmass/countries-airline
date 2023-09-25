@@ -1,7 +1,7 @@
-import { useMutation } from 'react-query';
-import { AirportType } from '@/types';
+import { useQuery } from 'react-query';
+import { useStore } from '@/store';
 
-const fetchAirports = async (country: string, search = '') => {
+export const fetchAirports = async (country: string, search = '') => {
   const url = 'https://api.api-ninjas.com/v1/airports?';
   let urlWithParams = '';
   if (search.length) {
@@ -19,19 +19,17 @@ const fetchAirports = async (country: string, search = '') => {
   return response.json();
 };
 
-export default function useGetAirports(
-  setAirports: (value: AirportType[]) => void,
-) {
-  const mutation = useMutation(
-    (data: { search: string; country: string }) => {
-      if (data?.search) {
-        return fetchAirports(data?.country, data.search);
-      } else {
-        return fetchAirports(data?.country);
-      }
+export default function useGetAirports() {
+  const { country } = useStore();
+  const { data, refetch } = useQuery(
+    'airport-' + country?.codeShort,
+    (search: any) =>
+      country?.codeShort.length > 0 &&
+      fetchAirports(country?.codeShort, search),
+    {
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
     },
-    { onSuccess: (response) => response.length && setAirports(response) },
   );
-
-  return { mutation };
+  return { data, refetch };
 }
