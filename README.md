@@ -1,27 +1,76 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Countries and Airports
 
-Currently, two official plugins are available:
+This is a Vite React project where I use React-Query to cache the fetched data from apis, such as: countries, airports and currencies.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Live version]()
 
-## Expanding the ESLint configuration
+## Table of Contents
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+* [Technologies and Libraries](#technologies-and-libraries)
+* [Features](#features)
+* [APIs](#apis)
+* [Folder Structure](#folder-structure)
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+## Technologies and Libraries
+
+**Environment:** Vite React, TailwindCSS, TypeScript
+
+**Packages:**
+- [React-Query](https://tanstack.com/query/v3/)
+- [React-Router](https://reactrouter.com/en/main)
+- [React-Select](https://react-select.com/home)
+
+## Features
+- Absolute Exporting & Importing.
+- Basic Responsiveness.
+- Caching to avoid unnecessary requests to the server.
+- Live preview.
+- Clean code & prettier & eslit.
+- Converting currencies from one country to another.
+- Searching airports for the chosen country.
+- Switching coutnries with React-Select Component.
+- Asking the user for locaiton permission to display country the user is located in.
+
+## APIs
+- [Countries Api](https://restcountries.com/)
+- [Currency Api](https://exchangerate.host/#)
+- [Airports Api](https://api-ninjas.com/api/airports)
+- [Reverse Geocoding Api](https://api-ninjas.com/api/reversegeocoding)
+
+## Folder Structure
+
+- Each component has it's own folder
+- Global or Layout Components are in /src/components
+- Local components are located in pages/page/components
+- index.ts files are used for absolute exporting
+- Hooks folder contains global custom hooks
+- Types folder contains global types
 ```
+├── public
+├── src
+│   └── components
+│       ├── GlobalComponent
+│       │   ├── GlobalComponent.tsx
+│       │   └── index.ts
+│       └── index.ts
+├── hooks
+├── types
+├── pages
+│   └── page
+│       ├── components
+│       ├── Page.tsx
+│       └── index.ts
+├── Layout.tsx
+├── App.tsx
+└── main.tsx
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- .eslintrc.json
+- .prettierrc.json
+- jsconfig.json
+- package-lock.json
+- package.json
+- README.mds
+- tailwind.config.js
+```
