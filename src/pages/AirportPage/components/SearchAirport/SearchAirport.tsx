@@ -20,7 +20,7 @@ export const SearchAirport: React.FC<{
   }, [value]);
 
   return (
-    <div className='w-full'>
+    <div className='w-full flex items-center gap-10'>
       <input
         type='text'
         onChange={handleChange}
@@ -28,6 +28,7 @@ export const SearchAirport: React.FC<{
         placeholder='Search for airport'
         className='border-b px-2 focus:outline-none py-1 border-b-[#808080]'
       />
+      {mutation.isLoading && <h1 className='h-4'>Loading...</h1>}
     </div>
   );
 };

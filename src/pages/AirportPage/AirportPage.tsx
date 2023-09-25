@@ -29,7 +29,7 @@ export const AirportPage = () => {
   }, [country]);
   return (
     <div className='w-full flex flex-col gap-4 px-3 py-2 bg-white shadow-lg rounded-lg'>
-      <h1 className='text-4xl '>Airports</h1>
+      <h1 className='text-4xl'>Airports</h1>
       <SearchAirport setAirports={airportHandler} />
       <DisplayAirports airports={airports} />
     </div>
