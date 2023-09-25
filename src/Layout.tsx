@@ -9,8 +9,8 @@ export const Layout = () => {
   const navigate = useNavigate();
 
   return (
-    <div className='w-full h-full flex justify-center items-center'>
-      <div className='w-[60%] h-[75vh] rounded-xl shadow-lg bg-slate-100'>
+    <div className='w-full h-full flex my-10 justify-center items-start'>
+      <div className='w-[90%] md:w-[60%] min-h-[75vh] pb-10 rounded-xl shadow-lg bg-slate-100'>
         <SelectCountries />
         <div className='px-10 flex flex-col gap-10'>
           <DisplayCountries />

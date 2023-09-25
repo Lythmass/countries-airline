@@ -6,7 +6,7 @@ export const DisplayAirports: React.FC<{
   const displayAirports = props.airports?.map(
     (airport: AirportType, index: number) => {
       return (
-        <h1 className='text-xl' key={index}>
+        <h1 className='text-sm md:text-xl' key={index}>
           {airport.iata} - {airport.name} ({airport.city})
         </h1>
       );
