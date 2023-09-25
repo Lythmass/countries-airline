@@ -12,7 +12,7 @@ export default function useFetchCurrencies(
   setResult?: (value: number) => void,
 ) {
   const mutation = useMutation(
-    (data: any) => {
+    (data: { from: string; to: string }) => {
       return fetchCurrencies(data.from, data.to);
     },
     {

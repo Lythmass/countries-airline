@@ -10,7 +10,6 @@ const fetchAirports = async (country: string, search = '') => {
   } else {
     urlWithParams = url + 'country=' + country?.toLowerCase();
   }
-  console.log(urlWithParams);
   const response = await fetch(urlWithParams, {
     headers: new Headers({
       'content-type': 'application/json',
@@ -24,7 +23,7 @@ export default function useGetAirports(
   setAirports: (value: AirportType[]) => void,
 ) {
   const mutation = useMutation(
-    (data: any) => {
+    (data: { search: string; country: string }) => {
       if (data?.search) {
         return fetchAirports(data?.country, data.search);
       } else {

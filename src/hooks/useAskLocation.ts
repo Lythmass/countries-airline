@@ -24,7 +24,7 @@ export default function useAskLocation() {
   const { countries } = useCountries();
   const location = useLocation();
   const defaultCountry = useMutation(
-    (data: any) => {
+    (data: { lat: number; long: number }) => {
       return fetchGeoLocation(data.lat, data.long);
     },
     {
